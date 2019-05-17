@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Order from './Order';
 import Inventory from './Inventory';
+import Fish from './Fish';
 
 class App extends React.Component {
 
@@ -27,6 +28,9 @@ class App extends React.Component {
 			<div className="catch-of-the-day">
 				<div className="menu">
 					<Header tagline="brian is cool"/>
+					<ul className="fishes">
+						<Fish />
+					</ul>
 				</div>
 					<Order />
 					<Inventory 
