@@ -29,7 +29,7 @@ class App extends React.Component {
 				<div className="menu">
 					<Header tagline="brian is cool"/>
 					<ul className="fishes">
-						<Fish />
+						{Object.keys(this.state.fishes).map(key => <Fish key={key} />)}
 					</ul>
 				</div>
 					<Order />
