@@ -10,7 +10,7 @@ class App extends React.Component {
 	state = {
 		fishes: {},
 		order: {}
-	}
+	};
 
 	addFish = (fish) => {
 		const fishes = {...this.state.fishes};
@@ -18,11 +18,19 @@ class App extends React.Component {
 		fishes[`fish${Date.now()}`] = fish;
 
 		this.setState({ fishes });
-	}
+	};
 
 	loadSampleFishes = () => {
 		this.setState({ fishes: sampleFishes });
-	}
+	};
+
+	addToOrder = (key) => {
+		const order = { ...this.state.order };
+
+		order[key] = order[key] + 1 || 1;
+
+		this.setState({ order });
+	};
 
 	render() {
 		return (
@@ -31,7 +39,11 @@ class App extends React.Component {
 					<Header tagline="brian is cool"/>
 					<ul className="fishes">
 						{Object.keys(this.state.fishes).map(key => (
-							<Fish key={key} details={this.state.fishes[key]} />
+							<Fish 
+								key={key} 
+								index={key}
+								details={this.state.fishes[key]} 
+								addToOrder={this.addToOrder} />
 						))}
 					</ul>
 				</div>
